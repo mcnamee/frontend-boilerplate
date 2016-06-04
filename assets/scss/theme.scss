@@ -1,0 +1,29 @@
+/**
+	* Imports
+	*/
+@import "plugins";
+
+/**
+	* Theme
+	*/
+
+/* Demo Grid Stuff */
+.grid-demo {
+  .row {
+    margin-bottom: 20px;
+  }
+
+  .row .row {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  [class*="col-"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+  }
+}

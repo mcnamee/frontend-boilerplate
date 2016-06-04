@@ -1,0 +1,21 @@
+# Security
+# ----------------------
+deploy.ini
+.htaccess
+
+# Packages
+# ----------------------
+/node_modules
+/bower_components
+
+# Log Files
+# ----------------------
+*.log
+.tmp
+*~
+*#
+.DS_Store
+.DS_STORE
+.netbeans
+nbproject
+.idea

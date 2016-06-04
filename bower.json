@@ -1,0 +1,21 @@
+{
+  "name": "FrontendBoilerplate",
+  "description": "A frontend boilerplate / toolkit / starter kit.",
+  "main": "gulpfile.js",
+  "authors": [
+    "Matt Mcnamee"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "frontend",
+    "optimisation",
+    "boilerplate",
+    "toolkit",
+    "starter kit"
+  ],
+  "moduleType": [],
+  "dependencies": {
+    "jquery": "~2.2.4",
+    "bootstrap-sass": "^3.3.6"
+  }
+}
