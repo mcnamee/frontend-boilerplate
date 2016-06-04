@@ -10,8 +10,10 @@ Starting a web project these days is time consuming. With all the build tools an
 - [Browser Sync](https://www.browsersync.io/)
 
 ### The frontend libraries
-- [link](http://getbootstrap.com/, "Bootstrap")
-- [link](https://jquery.com/, "jQuery")
+- [Bootstrap](http://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+
+***
 
 ## 1.0 Installing
 1. `git clone https://github.com/mcnamee/frontend-boilerplate.git`
@@ -19,8 +21,10 @@ Starting a web project these days is time consuming. With all the build tools an
 3. `bower install`
 4. Edit /gulpfile.js - find: `proxy: "localhost/"` and replace localhost with the URL that you'll be using for development. This allows you to work on a dynamic PHP site for example, as it'll proxy through the source
 
+***
+
 ## 2.0 Developing
-Because we're using SASS and also because we want our resulting code to be A+ efficient, we'll be using [Gulp](http://gulpjs.com/) as our build tool, to do the following for us:
+Because we're using SASS and also because we want our resulting code to be A+ performant, we'll be using [Gulp](http://gulpjs.com/) as our build tool, to do the following for us:
 - Convert our SASS to CSS and minify it to 1 small file - outputting to `/dist/theme.css`
 - Concatinate and minify our JS to 1 small file - outputting to `/dist/theme.js`
 - Optimize all of the images in our src/img directory and put the result into `/dist/img/`
@@ -30,6 +34,8 @@ Because we're using SASS and also because we want our resulting code to be A+ ef
 1. `gulp`
 2. In the command line, BrowserSync will give you 'Access URLs' - simply copy/paste the 'External' URL it provides into your browser as well as any other device on your network, and watch the magic.
 3. Press Save on any SCSS or JS file and watch as all of your browsers auto refresh
+
+***
 
 ## 3.0 Deploying
 Not everyone deploys to their own server on AWS. Believe it or not, some of us use shared hosting!
