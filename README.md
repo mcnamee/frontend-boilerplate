@@ -2,12 +2,12 @@
 Starting a web project these days is time consuming. With all the build tools and package managers to configure, plus all of the generic code we need to include by default like a solid htaccess file - let's make it less daunting!
 
 ### The tools we're using
-- [link](https://nodejs.org/en/, "NodeJS / NPM")
-- [link](http://bower.io/, "Bower")
-- [link](http://gulpjs.com/, "Gulp")
-- [link](https://github.com/BrunoDeBarros/git-deploy-php, "Git Deploy PHP")
-- [link](http://sass-lang.com/, "SASS")
-- [link](https://www.browsersync.io/, "Browser Sync")
+- [NodeJS / NPM](https://nodejs.org/en/)
+- [Bower](http://bower.io/)
+- [Gulp](http://gulpjs.com/)
+- [Git Deploy PHP](https://github.com/BrunoDeBarros/git-deploy-php)
+- [SASS](http://sass-lang.com/)
+- [Browser Sync](https://www.browsersync.io/)
 
 ### The frontend libraries
 - [link](http://getbootstrap.com/, "Bootstrap")
@@ -20,10 +20,11 @@ Starting a web project these days is time consuming. With all the build tools an
 4. Edit /gulpfile.js - find: `proxy: "localhost/"` and replace localhost with the URL that you'll be using for development. This allows you to work on a dynamic PHP site for example, as it'll proxy through the source
 
 ## 2.0 Developing
-Because we're using SASS and also because we want our resulting code to be A+ efficient, we'll be using [link](http://gulpjs.com/, "Gulp") as our build tool, to do the following for us:
+Because we're using SASS and also because we want our resulting code to be A+ efficient, we'll be using [Gulp](http://gulpjs.com/) as our build tool, to do the following for us:
 - Convert our SASS to CSS and minify it to 1 small file - outputting to `/dist/theme.css`
 - Concatinate and minify our JS to 1 small file - outputting to `/dist/theme.js`
-- Fire up [link](https://www.browsersync.io/, "Browser Sync"), and whenever you Save a SASS file for example, it'll automatically run the commands above and refresh any browser that has the development URL opened
+- Optimize all of the images in our src/img directory and put the result into `/dist/img/`
+- Fire up [Browser Sync](https://www.browsersync.io/), and whenever you Save a SASS file for example, it'll automatically run the commands above and refresh any browser that has the development URL opened
 
 ### 2.1 Running
 1. `gulp`
@@ -32,7 +33,7 @@ Because we're using SASS and also because we want our resulting code to be A+ ef
 
 ## 3.0 Deploying
 Not everyone deploys to their own server on AWS. Believe it or not, some of us use shared hosting!
-I've like the simplicity of [link](https://github.com/BrunoDeBarros/git-deploy-php, "Git Deploy PHP") as you can very easily deploy, and continue to re-deploy through a simple command.
+I've like the simplicity of [Git Deploy PHP](https://github.com/BrunoDeBarros/git-deploy-php) as you can very easily deploy, and continue to re-deploy through a simple command.
 
 ### 3.1 Initial Setup
 1. Rename `deploy-sample.ini` to `deploy.ini`
@@ -42,6 +43,6 @@ I've like the simplicity of [link](https://github.com/BrunoDeBarros/git-deploy-p
 1. From the command line: `php git-deploy`
 2. Make more changes locally, commit to git, and when you're ready to deploy - run the command again
 
-Checkout the [link](https://github.com/BrunoDeBarros/git-deploy-php, "Git Deploy PHP") repo for more details. You can also do things like:
+Checkout the [Git Deploy PHP](https://github.com/BrunoDeBarros/git-deploy-php) repo for more details. You can also do things like:
 - Have a multiple environments - so you can `php git-deploy staging` to send to a staging server for example
 - Revert changes
