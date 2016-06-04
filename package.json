@@ -15,6 +15,7 @@
   "devDependencies": {
     "bower-files": "^3.*.*",
     "browser-sync": "^2.*.*",
+    "del": "^2.*.*",
     "gulp": "^3.*.*",
     "gulp-autoprefixer": "^3.*.*",
     "gulp-clean-css": "^2.*.*",
