@@ -1,6 +1,6 @@
 /*!
  * gulp
- * $ sudo npm install del gulp bower-files gulp-concat gulp-sourcemaps gulp-sass gulp-minify-css gulp-autoprefixer browser-sync gulp-uglify gulp-imagemin --save
+ * $ sudo npm install del gulp bower-files gulp-concat gulp-sourcemaps gulp-sass gulp-minify-css gulp-autoprefixer browser-sync gulp-uglify gulp-imagemin gulp-connect-php --save
  */
 
 /*  Load plugins
@@ -16,6 +16,7 @@
         bowerLib = require('bower-files')(),
         imagemin = require('gulp-imagemin'),
         browserSync = require('browser-sync'),
+        php = require('gulp-connect-php'),
         reload = browserSync.reload;
 
 /*  Clean dist/img directory
@@ -66,11 +67,19 @@
         .pipe(gulp.dest('dist/'));
     });
 
+/*  Start PHP Server
+    - If you have PHP code you'd like to run
+      you can use this as a quick php server
+    ************************* */
+    gulp.task('php', function() {
+      /*php.server({ port: 8060, keepalive: true });*/
+    });
+
 /*  Browser Sync (gulp browserSync)
     - Opens browser-sync watching all php and css files
     - Any change and save will auto-update in the browser
     ************************* */
-    gulp.task('browserSync', function() {
+    gulp.task('browserSync', ['php'], function() {
       var files = [
         'dist/*',
         './**/*.php',
@@ -78,7 +87,9 @@
       ];
 
       browserSync.init(files, {
-        proxy: "localhost/",
+        proxy: '127.0.0.1:8060',
+        port: 8080,
+        open: true,
         notify: false
       });
     });

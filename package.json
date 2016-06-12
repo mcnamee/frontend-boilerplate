@@ -20,6 +20,7 @@
     "gulp-autoprefixer": "^3.*.*",
     "gulp-clean-css": "^2.*.*",
     "gulp-concat": "^2.*.*",
+    "gulp-connect-php": "0.*.*",
     "gulp-imagemin": "^3.*.*",
     "gulp-sass": "^2.*.*",
     "gulp-sourcemaps": "^1.*.*",
