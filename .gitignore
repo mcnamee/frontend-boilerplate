@@ -1,6 +1,6 @@
 # Security
 # ----------------------
-deploy.ini
+ftp-credentials.js
 .htaccess
 
 # Packages

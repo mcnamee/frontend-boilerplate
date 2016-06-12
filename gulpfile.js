@@ -1,6 +1,6 @@
 /*!
  * gulp
- * $ sudo npm install del gulp bower-files gulp-concat gulp-sourcemaps gulp-sass gulp-minify-css gulp-autoprefixer browser-sync gulp-uglify gulp-imagemin gulp-connect-php --save
+ * $ sudo npm install del gulp bower-files gulp-concat gulp-sourcemaps gulp-sass gulp-minify-css gulp-autoprefixer browser-sync gulp-uglify gulp-imagemin gulp-htmlmin run-sequence vinyl-ftp --save
  */
 
 /*  Load plugins
@@ -15,23 +15,40 @@
         uglify = require('gulp-uglify'),
         bowerLib = require('bower-files')(),
         imagemin = require('gulp-imagemin'),
+        htmlmin = require('gulp-htmlmin'),
+        runSequence = require('run-sequence'),
         browserSync = require('browser-sync'),
-        php = require('gulp-connect-php'),
+        ftp = require('vinyl-ftp'),
         reload = browserSync.reload;
 
-/*  Clean dist/img directory
+/*  Clean the /dist directory (gulp clean)
     ************************* */
     gulp.task('clean', function() {
-      del(['dist/img']);
+      return del(['dist']);
     });
 
-/*  Optimize Images (images)
+/*  Copy specific files to dist (gulp copy)
+    - eg. fonts, server config etc
+    ************************* */
+    gulp.task('copy', function() {
+      // Server config
+      gulp.src([
+          'src/.htaccess',
+        ]).pipe(gulp.dest('dist'));
+
+      // Fonts
+      gulp.src([
+          'bower_components/bootstrap-sass/assets/fonts/bootstrap/*'
+        ]).pipe(gulp.dest('dist/assets/fonts'));
+    });
+
+/*  Optimize Images (gulp images)
     - Optimizes images and outputs to dist directory
     ************************* */
-    gulp.task('images', ['clean'], function() {
-      gulp.src('src/img/**/*')
+    gulp.task('images', function() {
+      return gulp.src('src/assets/img/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/img'))
+        .pipe(gulp.dest('dist/assets/img'))
     });
 
 /*  Styles (gulp styles)
@@ -41,65 +58,119 @@
     - Generates source maps too
     ************************* */
     gulp.task('styles', function() {
-      gulp.src(['src/scss/theme.scss'])
+      return gulp.src(['src/assets/scss/theme.scss'])
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(autoprefixer({ browsers: ['last 5 versions'] }))
         .pipe(minifycss())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist/assets/'))
         .pipe(reload({ stream: true }));
     });
 
-/*  Concat and Minify JS (js)
-    - Looks for all bower components + src/js files
+/*  Concat and Minify JS (gulp js)
+    - Looks for all bower components + src/assets/js files
     ************************* */
     gulp.task('js', function () {
       // All Bower main JS files
       var files = bowerLib.ext('js').files;
 
-      // All src/js files
-      files.push('src/js/**/*.js');
+      // All src/assets/js files
+      files.push('src/assets/js/**/*.js');
 
-      gulp.src(files)
+      return gulp.src(files)
         .pipe(concat('theme.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/assets/'));
     });
 
-/*  Start PHP Server
-    - If you have PHP code you'd like to run
-      you can use this as a quick php server
+/*  Minify HTML (gulp html)
     ************************* */
-    gulp.task('php', function() {
-      php.server({ port: 8060, keepalive: true });
+    gulp.task('html', function() {
+      return gulp.src('src/*.html')
+        .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+        .pipe(gulp.dest('dist'))
     });
 
-/*  Browser Sync (gulp browserSync)
-    - Opens browser-sync watching all php and css files
-    - Any change and save will auto-update in the browser
+/*  Initial Build (gulp initialBuild)
+    - Runs the tasks in a specific order
     ************************* */
-    gulp.task('browserSync', ['php'], function() {
+    gulp.task('initialBuild', function(callback) {
+      runSequence('clean', 'copy',
+                  ['images', 'styles', 'js'],
+                  'html',
+                  callback);
+    });
+
+/*  Default task (gulp)
+    - Calls initialBuild task then:
+    - Starts BrowserSync
+    - Watches for any scss updates, and compiles the css
+    ************************* */
+    gulp.task('default', ['initialBuild'], function() {
+      /* Start BrowserSync */
       var files = [
-        'dist/*',
-        './**/*.php',
-        './**/*.html'
+        'dist/**/*',
       ];
 
       browserSync.init(files, {
-        proxy: '127.0.0.1:8060',
+        server: { baseDir: "./dist" },  // Use BrowserSync as server
+        // proxy: '127.0.0.1:8060', // - OR - Proxy a web server
         port: 8080,
         open: true,
         notify: false
       });
+
+      /* Run task on updates */
+      gulp.watch('src/**/*.html', ['html']);
+      gulp.watch('src/assets/scss/**/*.scss', ['styles']);
+      gulp.watch('src/assets/js/**/*.js', ['js']);
+      gulp.watch('src/assets/img/**/*', ['images']);
     });
 
-/*  Default task (gulp)
-    - Watches for any scss updates, and compiles the css
+/*  Deploy (gulp deploy)
+    - Calls initialBuild task then:
+    - FTPs to server
     ************************* */
-    gulp.task('default', ['images', 'styles', 'js', 'browserSync'], function () {
-        // Watch .scss files
-        gulp.watch('src/scss/**/*.scss', ['styles']);
-        gulp.watch('src/js/**/*.js', ['js']);
-        gulp.watch('src/img/**/*', ['images']);
+    gulp.task('deploy', function(callback) {
+      runSequence('initialBuild', 'ftp', callback);
+    });
+
+/*  FTPs (gulp ftp)
+    - Use the 'deploy' task instead of this
+      so that the files are built before uploading
+    ************************* */
+    gulp.task( 'ftp', function () {
+      // Rename ftp-credentials-SAMPLE.js to ftp-credentials.js and add your FTP connection details to it
+      var ftpCredentials;
+
+      try {
+        ftpCredentials = require('./ftp-credentials.js');
+
+        // Setup the connection
+        var conn = ftp.create(ftpCredentials);
+
+        // The files to upload
+        var toUpload = [
+            'dist/**',
+        ];
+
+        return gulp.src( toUpload, { base: '.', buffer: false } )
+          .pipe( conn.newer( '/public_html' ) ) // only upload newer files
+          .pipe( conn.dest( '/public_html' ) );
+
+      } catch (error) {
+        console.log(`
+          ======================================================
+          ======================= ERROR ========================
+          ======================================================
+
+          Rename ftp-credentials-SAMPLE.js to ftp-credentials.js and
+          add your FTP connection details to it.
+
+          ======================================================
+          ======================= ERROR ========================
+          ======================================================
+        `);
+      }
     });
