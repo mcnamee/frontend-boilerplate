@@ -72,7 +72,7 @@
       you can use this as a quick php server
     ************************* */
     gulp.task('php', function() {
-      /*php.server({ port: 8060, keepalive: true });*/
+      php.server({ port: 8060, keepalive: true });
     });
 
 /*  Browser Sync (gulp browserSync)

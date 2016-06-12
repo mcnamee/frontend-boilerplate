@@ -18,7 +18,7 @@ Starting a web project these days is time consuming. With all the build tools an
 
 ## 1.0 Installing
 1. `git clone https://github.com/mcnamee/frontend-boilerplate.git`
-2. `npm install --save`
+2. `npm install`
 3. `bower install`
 4. Edit /gulpfile.js - find: `proxy: "localhost..."` and replace localhost with the URL that you'll be using for development. This repo comes setup with a portable PHP web server. Although you can simply comment out the `php.server({...` line in gulpfile.js to use your own. This allows you to work on a dynamic PHP site for example, as it'll proxy through the source.
 
