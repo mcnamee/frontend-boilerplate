@@ -153,6 +153,7 @@
         // The files to upload
         var toUpload = [
             'dist/**',
+            'dist/.htaccess',
         ];
 
         return gulp.src( toUpload, { base: 'dist', buffer: false } )
