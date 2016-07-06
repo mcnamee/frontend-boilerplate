@@ -155,7 +155,7 @@
             'dist/**',
         ];
 
-        return gulp.src( toUpload, { base: '.', buffer: false } )
+        return gulp.src( toUpload, { base: 'dist', buffer: false } )
           .pipe( conn.newer( '/public_html' ) ) // only upload newer files
           .pipe( conn.dest( '/public_html' ) );
 
