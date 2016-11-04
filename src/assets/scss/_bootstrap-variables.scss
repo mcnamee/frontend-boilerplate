@@ -1,8 +1,6 @@
-$bootstrap-sass-asset-helper: false !default;
-// Flatly 3.3.6
-// Variables
+// Bootstrap Bootswatch Flatly 3.3.6 - Variables
 // --------------------------------------------------
-
+$bootstrap-sass-asset-helper: false !default;
 
 //== Colors
 //
@@ -15,11 +13,11 @@ $gray:                   #95a5a6 !default; // #555
 $gray-light:             #b4bcc2 !default;   // #999
 $gray-lighter:           #ecf0f1 !default; // #eee
 
-$brand-primary:         #2C3E50 !default;
-$brand-success:         #18BC9C !default;
-$brand-info:            #3498DB !default;
-$brand-warning:         #F39C12 !default;
-$brand-danger:          #E74C3C !default;
+$brand-primary:         #2c3e50 !default;
+$brand-success:         #18bc9c !default;
+$brand-info:            #3498db !default;
+$brand-warning:         #f39c12 !default;
+$brand-danger:          #e74c3c !default;
 
 
 //== Scaffolding
@@ -235,7 +233,7 @@ $cursor-disabled:                not-allowed !default;
 //** Background for the dropdown menu.
 $dropdown-bg:                    #fff !default;
 //** Dropdown menu `border-color`.
-$dropdown-border:                rgba(0,0,0,.15) !default;
+$dropdown-border:                rgba(0, 0, 0, .15) !default;
 //** Dropdown menu `border-color` **for IE8**.
 $dropdown-fallback-border:       #ccc !default;
 //** Divider color for between dropdown items.
@@ -541,7 +539,7 @@ $popover-bg:                          #fff !default;
 //** Popover maximum width
 $popover-max-width:                   276px !default;
 //** Popover border color
-$popover-border-color:                rgba(0,0,0,.2) !default;
+$popover-border-color:                rgba(0, 0, 0, .2) !default;
 //** Popover fallback border color
 $popover-fallback-border-color:       #ccc !default;
 
@@ -599,7 +597,7 @@ $modal-title-line-height:     $line-height-base !default;
 //** Background color of modal content area
 $modal-content-bg:                             #fff !default;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+$modal-content-border-color:                   rgba(0, 0, 0, .2) !default;
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color:          #999 !default;
 
@@ -804,7 +802,8 @@ $breadcrumb-separator:          "/" !default;
 //
 //##
 
-$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
+$carousel-text-shadow-color:                  rgba(0, 0, 0, .6);
+$carousel-text-shadow:                        0 1px 2px $carousel-text-shadow-color !default;
 
 $carousel-control-color:                      #fff !default;
 $carousel-control-width:                      15% !default;

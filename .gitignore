@@ -20,3 +20,4 @@ ftp-credentials.js
 .netbeans
 nbproject
 .idea
+*.lock

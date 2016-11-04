@@ -13,7 +13,6 @@
         autoprefixer = require('gulp-autoprefixer'),
         concat = require('gulp-concat'),
         uglify = require('gulp-uglify'),
-        bowerLib = require('bower-files')(),
         imagemin = require('gulp-imagemin'),
         htmlmin = require('gulp-htmlmin'),
         runSequence = require('run-sequence'),
@@ -38,7 +37,7 @@
 
       // Fonts
       gulp.src([
-          'bower_components/bootstrap-sass/assets/fonts/bootstrap/*'
+          'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
         ]).pipe(gulp.dest('dist/assets/fonts'));
     });
 
@@ -69,11 +68,13 @@
     });
 
 /*  Concat and Minify JS (gulp js)
-    - Looks for all bower components + src/assets/js files
     ************************* */
     gulp.task('js', function () {
-      // All Bower main JS files
-      var files = bowerLib.ext('js').files;
+      // Put any node_modules dependencies (JS) here
+      var files = [
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+      ];
 
       // All src/assets/js files
       files.push('src/assets/js/**/*.js');

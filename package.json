@@ -1,6 +1,6 @@
 {
   "name": "FrontendBoilerplate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A frontend boilerplate / toolkit / starter kit.",
   "main": "gulpfile.js",
   "keywords": [
@@ -13,7 +13,6 @@
   "author": "Matt Mcnamee",
   "license": "ISC",
   "devDependencies": {
-    "bower-files": "^3.*.*",
     "browser-sync": "^2.*.*",
     "del": "^2.*.*",
     "gulp": "^3.*.*",
@@ -27,5 +26,9 @@
     "gulp-uglify": "^1.*.*",
     "run-sequence": "^1.2.1",
     "vinyl-ftp": "^0.4.5"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.1"
   }
 }

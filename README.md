@@ -3,10 +3,10 @@ Starting a web project these days is time consuming. With all the build tools an
 
 ### The tools we're using
 - [NodeJS / NPM](https://nodejs.org/en/)
-- [Bower](http://bower.io/)
 - [Gulp](http://gulpjs.com/)
 - [SASS](http://sass-lang.com/)
 - [Browser Sync](https://www.browsersync.io/)
+- [SCSS-Lint](https://github.com/brigade/scss-lint)
 
 ### The frontend libraries
 - [Bootstrap](http://getbootstrap.com/)
@@ -24,14 +24,14 @@ Starting a web project these days is time consuming. With all the build tools an
 | HTTP Server                            | Need to get up quickly? Use the built in HTTP server. Want to use this with a PHP site? Use the built in proxy - just change a URL in the Gulp file. |
 | Live multi-device Browser Reloading    | Watch as you save files and your all browser/s reload automatically. Powered by [BrowserSync](http://browsersync.io). |
 | Deploy Option                          | FTP deploy built in, so that you can very easily deploy to any type of host with a single command. |
+| SCSS Linting                          | Using the AirBnB CSS/SASS Styleguide, we've got a SCSS-Lint configuration file ready to lint. Install the [SCSS-Lint Gem](https://github.com/brigade/scss-lint#installation) + install a linter into your IDE (eg. For Sublime Text 3: SublimeLinter + SublimeLinter-contrib-scss-lint) |
 
 ***
 
 ## 1.0 Installing
 1. `git clone https://github.com/mcnamee/frontend-boilerplate.git`
-2. `npm install`
-3. `bower install`
-4. If you're using this with a web server (eg. a PHP site), edit /gulpfile.js - within the BrowserSync task, comment out the `server:..` line, un-comment the `proxy:..` line and change the URL of the proxy to your web server.
+2. `npm install` or if you're using [Yarn](https://yarnpkg.com/): `yarn`
+3. If you're using this with a web server (eg. a PHP site), edit /gulpfile.js - within the BrowserSync task, comment out the `server:..` line, un-comment the `proxy:..` line and change the URL of the proxy to your web server.
 
 ***
 
