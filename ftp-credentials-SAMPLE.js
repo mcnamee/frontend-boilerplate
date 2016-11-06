@@ -4,11 +4,11 @@
   */
 
 module.exports = {
-  host:     'YOUR_HOST',
-  user:     'YOUR_USERNAME',
+  host: 'YOUR_HOST',
+  user: 'YOUR_USERNAME',
   password: 'YOUR_PASSWORD',
-  port:     21,
-  secure:   false,
+  port: 21,
+  secure: false,
   parallel: 3,
   maxConnections: 5,
-}
+};
