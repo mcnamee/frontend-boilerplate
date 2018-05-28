@@ -1,33 +1,55 @@
 // Imports ====================================================================
-@import "plugins";
-@import "base";
+@import "bootstrap";
 
-// Theme ====================================================================
+// Variables ===================================================================
 
-// Demo Grid Stuff
-$demo-background-color: rgba(86, 61, 124, .15);
-$demo-border-color: rgba(86, 61, 124, .2);
+$web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,800,800i" !default;
+@import url($web-font-path);
 
-.grid-demo {
-  .row {
-    margin-bottom: 20px;
+// Navbar ======================================================================
 
-    .row {
-      margin-top: 10px;
-      margin-bottom: 0;
-    }
-  }
+// Buttons =====================================================================
 
-  [class*="col-"] {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: $demo-background-color;
-    border: 1px solid $demo-border-color;
+.btn {
+  text-transform: uppercase;
+  font-weight: bold;
+  transition-duration: .2s;
+  transition-property: all;
+  letter-spacing: 0.1em;
+  box-shadow: rgba(23,43,99,0.26) 0 7px 42px
+}
+
+.btn:active {
+  transform: scale3d(0.97, 0.97, 0.97);
+}
+
+[class*="btn-outline"] {
+  box-shadow: none;
+}
+
+// Typography ==================================================================
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+// Tables ======================================================================
+
+// Forms =======================================================================
+
+// Navs ========================================================================
+
+// Indicators ==================================================================
+
+// Progress bars ===============================================================
+
+.progress {
+  @include box-shadow(none);
+  .progress-bar {
+    font-size: 8px;
+    line-height: 8px;
   }
 }
 
-.theme-showcase {
-  .jumbotron {
-    margin-top: 110px;
-  }
-}
+// Containers ==================================================================
+
