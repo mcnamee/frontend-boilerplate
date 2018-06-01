@@ -1,7 +1,7 @@
 # Frontend Boilerplate
 Starting a web project these days is time consuming. With all the build tools and package managers to configure, plus all of the generic code we need to include by default like a solid htaccess file - let's make it less daunting!
 
-[Demo Demo Demo](http://mcnamee.github.io/frontend-boilerplate/dist/)
+[Demo Demo Demo](http://mcnamee.github.io/frontend-boilerplate/)
 
 ### Tools we're using
 - [Laravel Mix (Webpack)](https://github.com/JeffreyWay/laravel-mix)
