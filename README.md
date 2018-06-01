@@ -45,6 +45,7 @@ Starting a web project these days is time consuming. With all the build tools an
 | `npm run dev` | Compiles/copies assets to /dist |
 | `npm run watch` | Watches your directory and compiles/copies assets to /dist each time you press save on a file |
 | `npm run production` | Compiles/minifies/copies assets to /dist ready for production |
+| `npm run deploy` | Deploys site to Github Pages |
 
 ---
 
