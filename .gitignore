@@ -5,8 +5,8 @@
 # Packages
 # ----------------------
 /node_modules
-/dist/*
-!/dist/.gitkeep
+# /dist/*
+# !/dist/.gitkeep
 
 # Log Files
 # ----------------------
