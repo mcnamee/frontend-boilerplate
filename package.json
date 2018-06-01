@@ -21,9 +21,10 @@
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^4.*.*",
+    "browser-sync": "^2.24.4",
+    "browser-sync-webpack-plugin": "^2.0.1",
     "jquery": "^3.*.*",
     "laravel-mix": "^2.1.11",
-    "popper.js": "^1.*.*",
-    "webpack-livereload-plugin": "^1.2.0"
+    "popper.js": "^1.*.*"
   }
 }
