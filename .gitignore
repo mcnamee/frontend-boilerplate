@@ -1,13 +1,12 @@
 # Security
 # ----------------------
-ftp-credentials.js
 .htaccess
 
 # Packages
 # ----------------------
 /node_modules
-/bower_components
-/dist
+/dist/*
+!/dist/.gitkeep
 
 # Log Files
 # ----------------------
