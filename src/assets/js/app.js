@@ -1,9 +1,12 @@
+/* global window $ */
+
 // Imports / Plugins / Dependencies
 // ------------------------------------------------------
 
 import 'bootstrap';
+
 window.Popper = require('popper.js').default;
-window.$ = window.jQuery = require('jquery');
+window.$ = require('jquery');
 
 // Custom
 // ------------------------------------------------------
@@ -11,13 +14,9 @@ window.$ = window.jQuery = require('jquery');
 /**
  * Popovers
  */
-$(function () {
-  $('[data-toggle="popover"]').popover();
-})
+$(() => $('[data-toggle="popover"]').popover());
 
 /**
  * Tooltips
  */
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+$(() => $('[data-toggle="tooltip"]').tooltip());

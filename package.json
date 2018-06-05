@@ -1,5 +1,5 @@
 {
-  "name": "FrontendBoilerplate",
+  "name": "frontend-boilerplate",
   "version": "2.0.0",
   "description": "A frontend boilerplate / toolkit / starter kit.",
   "main": "index.js",
@@ -11,20 +11,28 @@
     "starter kit"
   ],
   "scripts": {
+    "install": "npm run production",
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "deploy": "bash gh-pages-deploy.sh"
+    "deploy": "bash gh-pages-deploy.sh",
+    "lint-js": "./node_modules/.bin/eslint -c .eslintrc — ext .js src/assets/js"
   },
   "author": "Matt Mcnamee",
-  "license": "ISC",
-  "devDependencies": {
+  "license": "MIT",
+  "dependencies": {
     "bootstrap": "^4.*.*",
+    "jquery": "^3.*.*",
+    "popper.js": "^1.*.*"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "browser-sync": "^2.24.4",
     "browser-sync-webpack-plugin": "^2.0.1",
-    "jquery": "^3.*.*",
-    "laravel-mix": "^2.1.11",
-    "popper.js": "^1.*.*"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "laravel-mix": "^2.1.11"
   }
 }
