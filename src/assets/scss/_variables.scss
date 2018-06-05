@@ -1,0 +1,40 @@
+// Bootstrap Variable Overrides
+//
+// https://getbootstrap.com/docs/4.1/getting-started/theming/
+// Every Sass variable in Bootstrap 4 includes the !default flag allowing you to override the
+// variable’s default value in your own Sass without modifying Bootstrap’s source code.
+// Copy and paste variables as needed, modify their values, and remove the !default flag. If a
+// variable has already been assigned, then it won’t be re-assigned by the default values in Bootstrap.
+//
+// You will find the complete list of variables in `node_modules/bootstrap/scss/_variables.scss`
+
+// Color System =====================================================================
+
+$blue: #3e70ff;
+$secondary: $gray-800;
+$body-color: $gray-800;
+
+// Fonts =====================================================================
+
+$web-font-path: 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,800,800i';
+@import url($web-font-path);
+
+$font-size-base: .9375rem;
+
+$headings-font-family: 'Montserrat', inherit;
+$headings-font-weight: 800;
+
+// Buttons + Forms =====================================================================
+
+// Navs =====================================================================
+
+$navbar-dark-hover-color: rgba($white, 1);
+$navbar-light-hover-color: rgba($black, .9);
+
+// Alerts =====================================================================
+
+$alert-border-width: 0;
+
+// Progress =====================================================================
+
+$progress-height: .5rem;

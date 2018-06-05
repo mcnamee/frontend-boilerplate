@@ -1,15 +1,15 @@
 // Imports ====================================================================
-@import "bootstrap";
-
-// Variables ===================================================================
-
-$web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,800,800i" !default;
-@import url($web-font-path);
+@import 'bootstrap';
 
 // Generic ======================================================================
 
 body {
+  -webkit-font-smoothing: antialiased;
   padding-top: 5rem;
+}
+
+.bs-component {
+  margin: 0 0 20px;
 }
 
 // Navbar ======================================================================
@@ -17,16 +17,16 @@ body {
 // Buttons =====================================================================
 
 .btn {
-  text-transform: uppercase;
+  box-shadow: rgba(23, 43, 99, .26) 0 7px 42px;
   font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
   transition-duration: .2s;
   transition-property: all;
-  letter-spacing: 0.1em;
-  box-shadow: rgba(23,43,99,0.26) 0 7px 42px
 }
 
 .btn:active {
-  transform: scale3d(0.97, 0.97, 0.97);
+  transform: scale3d(.97, .97, .97);
 }
 
 [class*="btn-outline"] {
@@ -34,10 +34,6 @@ body {
 }
 
 // Typography ==================================================================
-
-body {
-  -webkit-font-smoothing: antialiased;
-}
 
 // Tables ======================================================================
 
