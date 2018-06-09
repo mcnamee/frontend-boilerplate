@@ -26,9 +26,6 @@ git clone https://github.com/mcnamee/frontend-boilerplate.git
 
 # Install dependencies
 npm install
-
-# Compile assets to /dist directory
-npm run dev
 ```
 
 ---
